@@ -1,6 +1,6 @@
 import { ReactLenis } from "lenis/react";
 import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -18,9 +18,9 @@ const Layout = ({ children }) => {
           <Navbar />
         </header>
         <main>{children}</main>
-        {/* <footer>
+        <footer>
           <Footer />
-        </footer> */}
+        </footer>
       </div>
     </ReactLenis>
   );
