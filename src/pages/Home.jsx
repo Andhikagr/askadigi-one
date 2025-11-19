@@ -82,7 +82,7 @@ const Home = () => {
             <h5>Some of my projects</h5>
           </AnimateIn>
           {/* Tombol kategori */}
-          <div className="flex gap-3 mb-5">
+          <div className="grid grid-cols-1 md:flex gap-3 mb-5">
             <button
               className={`px-4 py-2  rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
                 kategori === "ProjectOne"
