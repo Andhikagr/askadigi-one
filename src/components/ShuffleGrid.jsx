@@ -122,9 +122,9 @@ const ShuffleGrid = () => {
     return array;
   };
 
-  const squareData = Array.from({ length: 12 }, (_, i) => ({
+  const squareData = Array.from({ length: 9 }, (_, i) => ({
     id: i + 1,
-    src: `/Multi/Multi-${i + 1}.png`,
+    src: `/Mix/Mix-${i + 1}.png`,
   }));
 
   const generateSquares = () => {

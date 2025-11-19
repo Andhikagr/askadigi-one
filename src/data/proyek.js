@@ -105,7 +105,7 @@ export const proyek = [
       tech: ["Laravel", "Inertia", "MySQL", "React"],
     },
     ProjectThree: {
-      images: Array.from({ length: 4 }, (_, i) => `/kasir/kg-${i + 1}.png`),
+      images: Array.from({ length: 4 }, (_, i) => `/Kasir/kg-${i + 1}.png`),
       tech: ["Flutter", "SQLlite"],
     },
     ProjectFour: {
