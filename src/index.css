@@ -95,3 +95,66 @@ body {
     }
   }
 }
+
+/* bullets */
+.swiper-pagination {
+  padding: 0 7%;
+  margin-bottom: 2.4rem;
+  justify-content: flex-start !important;
+  display: flex !important;
+}
+
+.swiper-pagination-bullet {
+  border: 2px solid white !important;
+  width: 13px;
+  height: 13px;
+  pointer-events: auto;
+}
+.swiper-pagination-bullet-active {
+  width: 13px;
+  height: 13px;
+  background-color: #7c3aed !important;
+}
+@media (max-width: 768px) {
+  .swiper-pagination {
+    justify-content: center !important;
+    padding-bottom: 5rem;
+    pointer-events: none; /* opsional, biar benar2 di tengah */
+  }
+}
+
+/* Panah navigasi */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #7c3aed !important; /* warna panah */
+  width: 35px !important; /* lebar tombol */
+  height: 35px !important; /* tinggi tombol */
+  z-index: 9999;
+  background-color: white !important; /* background tombol */
+  border-radius: 50%; /* buat bundar */
+  display: flex; /* center panah */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* efek shadow halus */
+  transition: all 0.3s ease !important; /* animasi hover */
+  padding: 0.6rem !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.1); /* zoom sedikit saat hover */
+  background-color: #7c3aed !important; /* ganti warna background saat hover */
+  color: #fff !important; /* panah jadi putih */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 24px !important; /* ukuran panah lebih jelas */
+  font-weight: bold !important;
+}
+
+.perspective {
+  perspective: 1000px;
+}

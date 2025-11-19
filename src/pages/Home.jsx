@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState, lazy } from "react";
 import ShuffleGrid from "../components/ShuffleGrid";
 import AnimateIn from "../components/AnimateIn";
 import back1 from "../assets/back1.jpg";
@@ -14,6 +14,9 @@ import sql from "../assets/sql.png";
 import { html } from "motion/react-client";
 import { proyek } from "../data/proyek";
 import logo from "../assets/logo.png";
+import { AnimatePresence } from "motion/react";
+// import PreviewModel from "../components/PreviewModel";
+const PreviewModel = lazy(() => import("../components/PreviewModel"));
 
 const Home = () => {
   const [kategori, setKategori] = useState("ProjectOne");
@@ -29,6 +32,10 @@ const Home = () => {
     { name: "SQL", src: sql },
     { name: "Inertia", src: inertia },
   ];
+
+  const [previewImages, setPreviewImages] = useState([]);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <div>
@@ -47,8 +54,23 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <ShuffleGrid />
+          <ShuffleGrid
+            setCurrentIndex={setCurrentIndex}
+            setPreviewImages={setPreviewImages}
+            setPreviewOpen={setPreviewOpen}
+          />
         </div>
+        <AnimatePresence>
+          {previewOpen && (
+            <Suspense fallback={null}>
+              <PreviewModel
+                images={previewImages}
+                currentIndex={currentIndex}
+                onClose={() => setPreviewOpen(false)}
+              />
+            </Suspense>
+          )}
+        </AnimatePresence>
         <div className=" z-10  overflow-hidden  flex flex-col gap-10 items-center justify-center bg-theme sticky -top-100">
           <AnimateIn direction="up" duration={2}>
             <img src={back1} alt="" className="h-[600px] min-w-screen " />
@@ -161,10 +183,27 @@ const Home = () => {
                   <img
                     src={img}
                     alt={`project-${index}`}
-                    className="w-full h-full"
+                    className="w-full h-full cursor-pointer"
+                    onClick={() => {
+                      setCurrentIndex(index);
+                      setPreviewImages(proyek[0][kategori].images);
+                      setPreviewOpen(true);
+                    }}
+                    loading="lazy"
                   />
                 </AnimateIn>
               ))}
+              <AnimatePresence>
+                {previewOpen && (
+                  <Suspense fallback={null}>
+                    <PreviewModel
+                      images={previewImages}
+                      currentIndex={currentIndex}
+                      onClose={() => setPreviewOpen(false)}
+                    ></PreviewModel>
+                  </Suspense>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Teknologi yang digunakan */}
