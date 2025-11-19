@@ -60,7 +60,7 @@ const Home = () => {
               <h5 className="text-white">I'am currently worked on</h5>
             </div>
 
-            <div className="flex gap-5 items-center">
+            <div className="grid grid-cols-3 md:flex gap-5 items-center">
               {skills.map((skill, index) => (
                 <AnimateIn
                   key={index}
@@ -106,7 +106,7 @@ const Home = () => {
           </div>
 
           {/* Grid proyek */}
-          <div className="grid grid-cols-2 gap-5 mt-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4 w-full">
             {proyek[0][kategori].map((img, index) => (
               <AnimateIn
                 key={index}
