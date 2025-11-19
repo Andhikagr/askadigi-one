@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  h1 {
+    @apply text-6xl md:text-7xl font-bold;
+  }
+  h2 {
+    @apply font-bold text-4xl md:text-6xl;
+  }
+  h3 {
+    @apply font-semibold text-3xl md:text-5xl;
+  }
+  h4 {
+    @apply font-semibold text-2xl md:text-4xl;
+  }
+  h5 {
+    @apply font-medium text-xl md:text-2xl;
+  }
+  h6 {
+    @apply text-base md:text-xl;
+  }
+  p {
+    @apply text-sm md:text-lg;
+  }
+  a {
+    @apply text-sm md:text-lg;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+}
+
+/* shadow */
+@layer utilities {
+  .shadow-theme {
+    /* Light mode shadow */
+    @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)];
+
+    /* Dark mode shadow */
+    .dark & {
+      box-shadow: 0 4px 24px rgba(255, 255, 255, 0.03),
+        0 -2px 12px rgba(255, 255, 255, 0.02);
+    }
+  }
+
+  .text-theme {
+    color: #172554;
+  }
+
+  /* hover light/dark mode */
+  .hover-theme {
+    &:hover {
+      @apply bg-violet-800 text-white; /* light mode hover */
+    }
+    &:focus {
+      @apply bg-gray-200 text-white;
+    }
+
+    .dark & {
+      &:hover,
+      &:focus {
+        @apply bg-violet-700 text-white; /* dark mode hover */
+      }
+    }
+  }
+
+  .bg-theme {
+    @apply bg-white; /* default light mode bg */
+
+    .dark & {
+      @apply bg-gray-900; /* dark mode bg */
+    }
+  }
+  .bg-gradient-theme {
+    @apply bg-linear-to-t from-white via-transparent to-white; /* default light mode */
+
+    .dark & {
+      @apply from-gray-900 via-transparent to-gray-900; /* dark mode */
+    }
+  }
+
+  /* Text theme terpisah (opsional) */
+  .text-theme {
+    @apply text-white; /* default light mode text */
+
+    .dark & {
+      @apply text-[#172554]; /* dark mode text */
+    }
+  }
+}
