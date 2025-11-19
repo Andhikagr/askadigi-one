@@ -86,7 +86,7 @@ const Home = () => {
             <button
               className={`px-4 py-2  rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
                 kategori === "ProjectOne"
-                  ? "bg-indigo-600 text-white border-2 border-indigo-600"
+                  ? "bg-violet-600 text-white border-2 border-violet-600"
                   : "border-2 border-indigo-100"
               }`}
               onClick={() => setKategori("ProjectOne")}
@@ -96,31 +96,78 @@ const Home = () => {
             <button
               className={`px-4 py-2 rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
                 kategori === "ProjectTwo"
-                  ? "bg-indigo-600 text-white border-2 border-indigo-600"
+                  ? "bg-violet-600 text-white border-2 border-violet-600"
                   : "border-2 border-indigo-100"
               }`}
               onClick={() => setKategori("ProjectTwo")}
             >
               Single School Web
             </button>
+            <button
+              className={`px-4 py-2 rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
+                kategori === "ProjectThree"
+                  ? "bg-violet-600 text-white border-2 border-violet-600"
+                  : "border-2 border-indigo-100"
+              }`}
+              onClick={() => setKategori("ProjectThree")}
+            >
+              Mobile App Kasir
+            </button>
+            <button
+              className={`px-4 py-2 rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
+                kategori === "ProjectFour"
+                  ? "bg-violet-600 text-white border-2 border-violet-600"
+                  : "border-2 border-indigo-100"
+              }`}
+              onClick={() => setKategori("ProjectFour")}
+            >
+              Umroh Web
+            </button>
+            <button
+              className={`px-4 py-2 rounded-2xl cursor-pointer transition-all ease-in-out duration-300 ${
+                kategori === "ProjectFive"
+                  ? "bg-violet-600 text-white border-2 border-violet-600"
+                  : "border-2 border-indigo-100"
+              }`}
+              onClick={() => setKategori("ProjectFive")}
+            >
+              Mobile App Cars Rentals
+            </button>
           </div>
 
-          {/* Grid proyek */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4 w-full">
-            {proyek[0][kategori].map((img, index) => (
-              <AnimateIn
-                key={index}
-                direction="up"
-                duration={1}
-                delay={index * 0.1}
-              >
-                <img
-                  src={img}
-                  alt={`project-${index}`}
-                  className="w-full h-full"
-                />
-              </AnimateIn>
-            ))}
+          {/* Grid proyek + Teknologi */}
+          <div className="mt-4 self-start">
+            <h6 className="font-semibold mb-2">Technologies used:</h6>
+            <div className="flex flex-wrap gap-2">
+              {proyek[0][kategori].tech.map((t, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 bg-indigo-100 text-violet-800 rounded-full text-sm dark:bg-violet-800 dark:text-indigo-100"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="w-full mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {proyek[0][kategori].images.map((img, index) => (
+                <AnimateIn
+                  key={index}
+                  direction="up"
+                  duration={1}
+                  delay={index * 0.1}
+                >
+                  <img
+                    src={img}
+                    alt={`project-${index}`}
+                    className="w-full h-full"
+                  />
+                </AnimateIn>
+              ))}
+            </div>
+
+            {/* Teknologi yang digunakan */}
           </div>
         </div>
       </section>
