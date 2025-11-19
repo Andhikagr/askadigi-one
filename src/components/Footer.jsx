@@ -19,6 +19,10 @@ const Footer = () => {
       src: "/Icon/lynk.png",
       link: "https://lynk.id/andhikagr",
     },
+    {
+      src: "/Icon/github.png",
+      link: "https://github.com/Andhikagr",
+    },
   ];
 
   return (
@@ -42,7 +46,7 @@ const Footer = () => {
                       src={items.src}
                       alt="icon"
                       tabIndex={0}
-                      className="w-12 h-12 object-contain shadow-theme hover-theme cursor-pointer p-2 rounded-2xl"
+                      className="w-12 h-12 object-contain shadow-theme bg-theme hover-theme cursor-pointer p-2 rounded-2xl"
                     />
                   </a>
                 </AnimateIn>

@@ -57,7 +57,7 @@ body {
   /* hover light/dark mode */
   .hover-theme {
     &:hover {
-      @apply bg-violet-800 text-white; /* light mode hover */
+      @apply bg-violet-200 text-white; /* light mode hover */
     }
     &:focus {
       @apply bg-gray-200 text-white;
@@ -66,7 +66,7 @@ body {
     .dark & {
       &:hover,
       &:focus {
-        @apply bg-violet-700 text-white; /* dark mode hover */
+        @apply bg-white text-white; /* dark mode hover */
       }
     }
   }
